@@ -29,9 +29,10 @@ import (
 )
 
 var (
-	OutOfGasError          = errors.New("Out of gas")
-	CodeStoreOutOfGasError = errors.New("Contract creation code storage out of gas")
-	ErrRevert              = errors.New("Execution reverted")
+	OutOfGasError          			= errors.New("Out of gas")
+	CodeStoreOutOfGasError 			= errors.New("Contract creation code storage out of gas")
+	ErrRevert             	 		= errors.New("Execution reverted")
+
 )
 
 // VirtualMachine is an EVM interface

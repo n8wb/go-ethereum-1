@@ -690,13 +690,13 @@ func TestAllETH(t *testing.T) {
 	skipTests["RevertPrecompiledTouch_storage.json/ConstantinopleFix/3"] = "Bug in Test"
 
 	// EIP 684 Implementations
-	skipTests["TransactionCollisionToEmptyButCode.json"] = "Not Implemented"
-	skipTests["TransactionCollisionToEmpty.json"] = "Not Implemented"
-	skipTests["TransactionCollisionToEmptyButNonce.json"] = "Not Implemented"
-	skipTests["CreateCollisionToEmpty.json"] = "Not Implemented"
-	skipTests["CreateHashCollision.json"] = "Not Implemented"
-	skipTests["createJS_ExampleContract.json"] = "Not Implemented"
-	skipTests["RevertDepthCreateAddressCollision.json"] = "Not Implemented"
+	// skipTests["TransactionCollisionToEmptyButCode.json"] = "Not Implemented"
+	// skipTests["TransactionCollisionToEmpty.json"] = "Not Implemented"
+	// skipTests["TransactionCollisionToEmptyButNonce.json"] = "Not Implemented"
+	// skipTests["CreateCollisionToEmpty.json"] = "Not Implemented"
+	// skipTests["CreateHashCollision.json"] = "Not Implemented"
+	// skipTests["createJS_ExampleContract.json"] = "Not Implemented"
+	// skipTests["RevertDepthCreateAddressCollision.json"] = "Not Implemented"
 
 	// Random Test failures
 	skipTests["randomStatetest644.json"] = "random unimplemented"
