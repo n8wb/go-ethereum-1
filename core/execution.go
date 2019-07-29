@@ -94,7 +94,7 @@ func exec(env vm.Environment, caller vm.ContractRef, address, codeAddr *common.A
 
 	var createAccount bool
 	if address == nil {
-		//ensure there's no existing account already at the address and Create a new account on the state
+		//Create a new account on the state
 		nonce := env.Db().GetNonce(caller.Address())
 		env.Db().SetNonce(caller.Address(), nonce+1)
 		addr = crypto.CreateAddress(caller.Address(), nonce)
@@ -111,6 +111,7 @@ func exec(env vm.Environment, caller vm.ContractRef, address, codeAddr *common.A
 	)
 
 	if createAccount {
+		//ensure there's no existing account already at the address
 		hash := env.Db().GetCodeHash(addr)
 		if env.Db().GetNonce(addr) != 0 || (hash != (common.Hash{}) && hash != emptyCodeHash) {
 			fmt.Printf("EMPTY!")
