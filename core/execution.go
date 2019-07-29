@@ -94,17 +94,13 @@ func exec(env vm.Environment, caller vm.ContractRef, address, codeAddr *common.A
 
 	var createAccount bool
 	if address == nil {
-		
 		//ensure there's no existing account already at the address and Create a new account on the state
 		nonce := env.Db().GetNonce(caller.Address())
 		env.Db().SetNonce(caller.Address(), nonce+1)
 		addr = crypto.CreateAddress(caller.Address(), nonce)
 		address = &addr
-		hash := env.Db().GetCodeHash(addr)
-		if env.Db().GetNonce(addr) != 0 || (hash != (common.Hash{}) && hash != emptyCodeHash) {
-			return nil, common.Address{}, ContractAddressCollisionError
-		}
 		createAccount = true
+
 	}
 
 
@@ -115,6 +111,14 @@ func exec(env vm.Environment, caller vm.ContractRef, address, codeAddr *common.A
 	)
 
 	if createAccount {
+		hash := env.Db().GetCodeHash(addr)
+		if env.Db().GetNonce(addr) != 0 || (hash != (common.Hash{}) && hash != emptyCodeHash) {
+			fmt.Printf("EMPTY!")
+			return nil, common.Address{}, ContractAddressCollisionError
+		}
+		snapshotPreTransfer = env.SnapshotDatabase()	
+
+		//create a new account on the state
 		to = env.Db().CreateAccount(*address)
 
 		if env.RuleSet().IsAtlantis(env.BlockNumber()) {
@@ -163,7 +167,7 @@ func exec(env vm.Environment, caller vm.ContractRef, address, codeAddr *common.A
 	// When an error was returned by the EVM or when setting the creation code
 	// above we revert to the snapshot and consume any gas remaining. Additionally
 	// when we're in homestead this also counts for code storage gas errors.
-	if createAccount && maxCodeSizeExceeded || (err != nil && (env.RuleSet().IsHomestead(env.BlockNumber()) || err != vm.CodeStoreOutOfGasError)) {
+	if createAccount && maxCodeSizeExceeded || (err != nil && (env.RuleSet().IsHomestead(env.BlockNumber()) || err != vm.CodeStoreOutOfGasError)) {	
 		env.RevertToSnapshot(snapshotPreTransfer)
 		if err != vm.ErrRevert {
 			contract.UseGas(contract.Gas)
