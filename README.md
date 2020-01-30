@@ -3,6 +3,7 @@
 [![GitHub release](https://img.shields.io/github/release-pre/etclabscore/go-ethereum.svg)](https://github.com/etclabscore/go-ethereum/releases/latest)
 ![GitHub All Releases](https://img.shields.io/github/downloads/etclabscore/go-ethereum/total.svg)
 ![LICENSE](https://img.shields.io/github/license/etclabscore/go-ethereum.svg)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fn8wb%2Fgo-ethereum-1.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fn8wb%2Fgo-ethereum-1?ref=badge_shield)
 
 [![CircleCI](https://img.shields.io/circleci/build/gh/etclabscore/go-ethereum/development.svg)](https://circleci.com/gh/etclabscore/go-ethereum/tree/development) 
 ![GitHub last commit](https://img.shields.io/github/last-commit/etclabscore/go-ethereum.svg)
@@ -296,3 +297,6 @@ Please see the [Wiki](https://github.com/ethereumproject/go-ethereum/wiki) for m
 The go-ethereum library (i.e. all code outside of the `cmd` directory) is licensed under the [GNU Lesser General Public License v3.0](http://www.gnu.org/licenses/lgpl-3.0.en.html), also included in our repository in the `COPYING.LESSER` file.
 
 The go-ethereum binaries (i.e. all code inside of the `cmd` directory) is licensed under the [GNU General Public License v3.0](http://www.gnu.org/licenses/gpl-3.0.en.html), also included in our repository in the `COPYING` file.
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fn8wb%2Fgo-ethereum-1.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fn8wb%2Fgo-ethereum-1?ref=badge_large)
